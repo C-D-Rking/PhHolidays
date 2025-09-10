@@ -1,0 +1,149 @@
+:root {
+  /* Theme tokens */
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --muted: #6b7280;
+  --text: #0f172a;
+  --accent: #635bff;
+  --radius: 12px;
+  --glass: rgba(255,255,255,0.6);
+  --shadow-sm: 0 6px 18px rgba(15,23,42,0.06);
+}
+
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+#root {
+  max-width: 1100px;
+  margin: 48px auto;
+  padding: 36px;
+  min-height: calc(100vh - 96px); /* ensures page feels taller */
+}
+
+/* Card / container */
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.8), var(--surface));
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 28px;
+  border: 1px solid rgba(15,23,42,0.04);
+}
+
+/* Utilities */
+.section { margin-top: 24px; }
+.read-the-docs { color: var(--muted); font-size: 0.95rem; }
+
+/* Date dropdowns vertical stack styling (modernized) */
+.date-dropdowns {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  width: 100%;
+}
+
+.date-dropdowns label { display: block; font-size: 0.9rem; color: var(--muted); }
+
+.date-dropdowns select,
+.holidays-input,
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(15,23,42,0.06);
+  background: linear-gradient(180deg, #fff, var(--glass));
+  box-shadow: inset 0 -1px 0 rgba(15,23,42,0.02);
+  color: var(--text);
+  outline: none;
+  transition: box-shadow 150ms ease, transform 120ms ease, border-color 120ms ease;
+}
+
+.date-dropdowns select:focus,
+.holidays-input:focus,
+input:focus,
+textarea:focus {
+  border-color: rgba(99,91,255,0.9);
+  box-shadow: 0 6px 20px rgba(99,91,255,0.08);
+  transform: translateY(-1px);
+}
+
+.holidays-input { display: inline-block; min-width: 220px; box-sizing: border-box; }
+
+.date-dropdowns div { width: 100%; word-break: break-word; }
+
+/* Weekday checkboxes — compact, pill style */
+.weekday-checkboxes {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  align-items: center;
+}
+
+.weekday-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(99,91,255,0.06);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  color: var(--muted);
+  cursor: pointer;
+  user-select: none;
+}
+
+.weekday-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+}
+
+/* Small monospace blocks (triangle) */
+.triangle pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
+  line-height: 1.5;
+  font-size: 0.95rem;
+  background: transparent;
+  padding: 4px 0;
+  color: var(--muted);
+}
+
+/* Logo adjustments */
+.logo { height: 56px; padding: 12px; transition: transform 220ms ease, filter 220ms ease; }
+.logo:hover { transform: translateY(-2px); filter: drop-shadow(0 6px 24px rgba(99,91,255,0.12)); }
+
+/* Responsive tweaks */
+/* Keep date controls stacked on all screen sizes so items sit vertically.
+   The bottom element with class `.triangle` is treated as a separate
+   visual block and is centered. */
+.date-dropdowns { grid-template-columns: 1fr; }
+.date-dropdowns > :not(.triangle) { width: 100%; }
+.date-dropdowns > .triangle {
+  justify-self: center;
+  width: auto;
+  margin-top: 24px;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo { animation: none; }
+}
+
+/* Small helper styles for links and accents */
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.muted { color: var(--muted); }
+
+/* Keep legacy class names working but tidy */
+.info-container { margin-top: 18px; }
+
