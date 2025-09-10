@@ -1,6 +1,6 @@
 {
   "name": "my-act-1-web",
-    "homepage": "https://github.com/C-D-Rking/PhHolidays/",
+  "homepage": "https://github.com/C-D-Rking/PhHolidays/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,7 +9,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "pre-deploy": "npm run build",
+    "pre-deploy": "npm run deploy",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
